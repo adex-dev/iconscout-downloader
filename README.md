@@ -53,3 +53,14 @@ $python3 main.py
 
 * [MIT](https://choosealicense.com/licenses/mit/)
 * [IconScout](https://iconscout.com/)
+
+## Disclaimer
+
+This tool is created for educational purposes only.
+If you intend to use any content commercially:
+
+1. Visit Iconscout: https://iconscout.com/
+
+2. Purchase the appropriate commercial license.
+
+The developer of this script is not responsible for misuse or copyright violations.License
