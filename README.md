@@ -38,14 +38,24 @@ Go to the project directory
 Run Project:
 
 windows :
+png download
 ```bash
   $py main.py
 ```
+animation lottie
+```bash
+  $py lottie.py
+```
 linux or Mac : 
+png download
 ```bash
 $python3 main.py
 ```
-
+animation lottie
+```bash
+  $python3 lottie.py
+```
+if you want download png
 ## Output Location
 * The downloaded files will be saved in the path_downloader folder. You can find all results there.
 
