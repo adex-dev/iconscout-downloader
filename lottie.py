@@ -14,22 +14,25 @@ def parse_url(link):
     return name, id_,path
 
 def build_final_url(path_):
-    url = "https://node.api.freeanimationdownloader.com/scrape"
-    payload = {
-        "url": "https://iconscout.com" +path_
-    }
-    headers = {
-        "Content-Type": "application/json",
-        "Origin": "https://freeanimationdownloader.com",
-        "Referer": "https://freeanimationdownloader.com/",
-        "Accept": "application/json, text/plain, */*",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    }
+    try:
+        url = "https://node.api.freeanimationdownloader.com/scrape"
+        payload = {
+            "url": "https://iconscout.com" +path_
+        }
+        headers = {
+            "Content-Type": "application/json",
+            "Origin": "https://freeanimationdownloader.com",
+            "Referer": "https://freeanimationdownloader.com/",
+            "Accept": "application/json, text/plain, */*",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
 
-    response = requests.post(url, data=json.dumps(payload), headers=headers)
-    data = response.json()
-    return data["links"]["original"]
+        response = requests.post(url, data=json.dumps(payload), headers=headers)
+        data = response.json()
+        return data["links"]["original"]
 
+    except Exception as e:
+      print(f"Failed: {path_} => {e}")
 
 def download_image(url, filename):
     try:
@@ -53,7 +56,7 @@ def process_txt(file_path):
             name, id_,_path = parse_url(original_url)
 
             final_url = build_final_url(_path)
-            filename = f"{name}_{id_}.json"
+            filename = f"{name}.json"
 
             download_image(final_url, filename)
 

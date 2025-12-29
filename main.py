@@ -37,7 +37,7 @@ def process_txt(file_path):
             name, id_ = parse_url(original_url)
 
             final_url = build_final_url(name, id_)
-            filename = f"{name}_{id_}.png"
+            filename = f"{name}.png"
 
             download_image(final_url, filename)
             
